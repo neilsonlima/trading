@@ -2,7 +2,7 @@ const MongoClient = require('mongodb').MongoClient
 const url = "mongodb://localhost:27017/"
 const mail = require('./mail')
 
-const my_to = 'Neilson Lima<neilsonlima@gmail.com>'
+const my_to = 'Name<seuemail@x>'
 
 const init = (response) => {
   let data = []

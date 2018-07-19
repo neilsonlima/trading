@@ -6,7 +6,7 @@ module.exports = function(){
   'use strict';
   const send = function (email,assunto, texto){
     let data = {
-      from: 'Signal Hunter <qhimerabr@gmail.com>',
+      from: 'Signal Hunter <signalhunter@gmail.com>',
       to: email,
       subject: assunto,
       text: texto

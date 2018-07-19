@@ -3,5 +3,5 @@
 service=candlesticks.js
 
 if(($(ps -ef | grep -v grep | grep $service | wc -l) <= 0)); then
-  node /home/deploy/scripts/src/$service &
+  node /home/deploy/trade/src/$service &
 fi
