@@ -48,6 +48,7 @@ node src/server.js &
 node src/strategy.js &
 node src/clandlesticks.js &
 node src/volume.js &
+```
 
 ## crontab
     * * * * * sleep 10 && /home/user/trade/cron/volume.sh
