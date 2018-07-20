@@ -37,17 +37,28 @@ sudo apt-get install build-essential mongodb -y
 
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
+```
 
+clone project
+```
 git clone https://github.com/neilsonlima/trade.git
 cd trade
-npm install
-cd strategy
-npm install
+```
 
-node src/server.js &
-node src/strategy.js &
-node src/clandlesticks.js &
-node src/volume.js &
+install modules
+```
+cd trade
+npm install
+cd ../strategy
+npm install
+```
+
+start service
+```
+(trade)      node src/server.js &
+(strategy)   node src/strategy.js &
+(trade)      node src/clandlesticks.js &
+(trade)      node src/volume.js &
 ```
 
 ## crontab
