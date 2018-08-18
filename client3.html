@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sala 3 BB</title>
+</head>
+
+<body>
+  <h1></h1>
+  <div id="log">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Pair</th>
+          <th>Volume</th>
+          <th>Last price</th>
+          <th>Data</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+  <script>
+
+
+    let ws = new WebSocket("ws://localhost:8080", ['bb', 'token2'])
+    let log = document.getElementById('log')
+    ws.onopen = function () { setTitle("Conectado.... :)"); }
+    ws.onclose = function () { setTitle("Disconnected"); }
+    ws.onerror = function (err) { setTitle("Error: " + err); }
+    ws.onmessage = function (event) {
+      let content = document.createElement('div')
+      let data = JSON.parse(event.data)
+      let html = ""
+      let binance = 'https://www.binance.com/trade.html?symbol='
+      let tradingview = 'https://br.tradingview.com/chart/?symbol=BINANCE:'
+
+      data["bb"].forEach(element => {
+        html += '<tr>'
+        html += '<td>' + element.symbol + '</td>'
+        html += '<td>' + element.volume + '</td>'
+        html += '<td>' + element.last_price + '</td>'
+        html += '<td>' + element.time + '</td>'
+        html += '<td>'
+        html += '<a href="' + binance + element.symbol + '">Binance</a>'
+        html += '<a href="' + tradingview + element.symbol + '">TradingView</a>'
+        html += '</td>'
+        html += '</tr>'
+      });
+      if (html != "") {
+        $('#log').find('tbody').prepend(html)
+      }
+
+
+    }
+    function setTitle(title) {
+      document.querySelector("h1").innerHTML = title;
+    }
+  </script>
+
+</body>
+
+</html>
