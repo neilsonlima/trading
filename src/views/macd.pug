@@ -1,7 +1,33 @@
+doctype 
 html
   head
-    title= title
+    meta(charset='utf-8')
+    title Sala 2 MACD
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
+    style(media='screen').
+      #log {
+      width: 500px;
+      border: 1px solid;
+      height: 116px;
+      overflow: scroll;
+      }
   body
-    h1= title
-    div.container
-      p signalhunter
+    .container      
+      h1 MACD
+      h3
+      #log
+    // <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    script.
+      let ws = new WebSocket("ws://localhost:8080", ['macd', 'token']);
+      let log = document.getElementById('log');
+      ws.onopen = function () { setTitle("Conectado.... :)"); };
+      ws.onclose = function () { setTitle("Disconnected"); };
+      ws.onerror = function (err) { setTitle("Error: " + err); };
+      ws.onmessage = function (event) {
+        let content = document.createElement('div');
+        content.innerHTML = event.data;
+        log.insertBefore(content, log.firstChild);
+      }
+      function setTitle(title) {
+        document.querySelector("h3").innerHTML = title;
+      }
