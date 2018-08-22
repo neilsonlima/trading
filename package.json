@@ -24,7 +24,10 @@
     "nodemon": "^1.17.3"
   },
   "scripts": {
-    "start": "nodemon src/app.js"
+    "server": "node src/server.js",
+    "coletor": "node src/candlesticks.js",
+    "strategy": "node src/strategy.js",
+    "dev": "nodemon src/app.js"
   },
   "author": "Neilson Lima",
   "license": "ISC"

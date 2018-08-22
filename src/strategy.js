@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const magic = require('./lib/magic')
 const bb = require('./lib/bb')
 
-var connection = new WebSocket('ws://localhost:8080', [
+var connection = new WebSocket('ws://localhost:8081', [
   'strategy',
   '8b87ce72bbdb4f87fab8064f117fd5e2'
 ])

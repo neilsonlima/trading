@@ -20,7 +20,7 @@ html
           tbody
     script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=' crossorigin='anonymous')
     script.
-      let ws = new WebSocket("ws://localhost:8080", ['magic', 'token'])
+      let ws = new WebSocket("ws://localhost:8081", ['magic', 'token'])
       let log = document.getElementById('log')
       ws.onopen = function () { setTitle("Conectado.... :)") }
       ws.onclose = function () { setTitle("Disconnected"); }
@@ -38,8 +38,8 @@ html
             html += '<td>' + element.last_price + '</td>'
             html += '<td>' + element.time + '</td>'
             html += '<td>'
-            html += '<a href="' + binance + element.symbol + '">Binance</a>'
-            html += '<a href="' + tradingview + element.symbol + '">TradingView</a>'
+            html += '<a href="' + binance + element.symbol + '" class="btn btn-warning btn-sm">Binance</a> '
+            html += '<a href="' + tradingview + element.symbol + '" class="btn btn-warning btn-sm">TradingView</a>'
             html += '</td>'
             html += '</tr>'
           });

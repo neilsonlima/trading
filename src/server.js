@@ -1,6 +1,6 @@
 const WebSocket = require('ws')
 const mongoose = require('mongoose')
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8081
 const wss = new WebSocket.Server({ port: port })
 let url = 'mongodb://localhost/binance'
 mongoose.connect(
