@@ -1,11 +1,9 @@
 doctype 
 html
-  head
-    meta(charset='utf-8')
-    title Sala 1 Magic
-    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
+  include head.pug
   body
-    .container  
+    include nav.pug
+    main.container
       h1 MAGIC
       h3
       #log
@@ -38,8 +36,8 @@ html
             html += '<td>' + element.last_price + '</td>'
             html += '<td>' + element.time + '</td>'
             html += '<td>'
-            html += '<a href="' + binance + element.symbol + '" class="btn btn-warning btn-sm">Binance</a> '
-            html += '<a href="' + tradingview + element.symbol + '" class="btn btn-warning btn-sm">TradingView</a>'
+            html += '<a href="' + binance + element.symbol + '" class="btn btn-warning btn-sm" target="_blank">Binance</a> '
+            html += '<a href="' + tradingview + element.symbol + '" class="btn btn-warning btn-sm" target="_blank">TradingView</a>'
             html += '</td>'
             html += '</tr>'
           });
