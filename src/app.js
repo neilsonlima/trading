@@ -1,5 +1,11 @@
 const express = require('express')
 const app = express()
+const volume = require('./volume')
+const candlesticks = require('./candlesticks')
+
+// inicia os coletores
+volume.start()
+candlesticks.kline()
 
 app.set('view engine', 'pug')
 app.set('views', './src/views')

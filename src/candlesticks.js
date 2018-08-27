@@ -15,6 +15,7 @@ mongoose.connect(
 const coins = {
   alts: [],
   kline: function () {
+    console.log('Candlesticks inicializado!')
     binance.websockets.candlesticks(
       symbols.symbols,
       '1m',
@@ -100,4 +101,5 @@ const coins = {
   }
 }
 
-coins.kline()
+// coins.kline()
+module.exports = coins
