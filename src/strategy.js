@@ -47,17 +47,21 @@ const sendSignals = response => {
   }
   console.log(response)
 }
-
-const job = new CronJob(
-  '0 * * * * *',
-  () => {
-    strategy()
-      .then(response => sendSignals(response))
-      .catch(err => {
-        console.log(err)
-      })
-  },
-  null,
-  true,
-  'America/Sao_Paulo'
-)
+module.exports = {
+  start: function () {
+    console.log('[Estrategias] inicializado!')
+    const job = new CronJob(
+      '0 * * * * *',
+      () => {
+        strategy()
+          .then(response => sendSignals(response))
+          .catch(err => {
+            console.log(err)
+          })
+      },
+      null,
+      true,
+      'America/Sao_Paulo'
+    )
+  }
+}

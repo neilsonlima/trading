@@ -4,7 +4,7 @@ const symbol = require('./lib/symbol')
 
 module.exports = {
   start: function () {
-    console.log('Volume inicializado!')
+    console.log('[Volume] inicializado!')
     const obj = new CronJob(
       '0 * * * * *',
       () => {

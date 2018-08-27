@@ -15,7 +15,7 @@ mongoose.connect(
 const coins = {
   alts: [],
   kline: function () {
-    console.log('Candlesticks inicializado!')
+    console.log('[Coletor] inicializado!')
     binance.websockets.candlesticks(
       symbols.symbols,
       '1m',
