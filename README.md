@@ -1,8 +1,8 @@
-# trade
+# trading
 
 ## Description
 
-Trade is a command-line cryptocurrency trading bot using Node.js and MongoDB
+Trading is a command-line cryptocurrency trading bot using Node.js and MongoDB
 
 ## Quick-start
 
@@ -16,15 +16,13 @@ Trade is a command-line cryptocurrency trading bot using Node.js and MongoDB
 Run in your console,
 
 ```
-git clone https://github.com/neilsonlima/trade.git
+git clone https://github.com/neilsonlima/trading.git
 ```
 
 Install dependencies:
 
 ```
-cd trade
-npm install
-cd strategy
+cd trading
 npm install
 ```
 
@@ -35,33 +33,32 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install build-essential mongodb -y
 
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
 clone project
+
 ```
-git clone https://github.com/neilsonlima/trade.git
+git clone https://github.com/neilsonlima/trading.git
 cd trade
 ```
 
 install modules
+
 ```
-cd trade
-npm install
-cd ../strategy
+cd trading
 npm install
 ```
 
 start service
+
 ```
-(trade)      node src/server.js &
-(strategy)   node src/strategy.js &
-(trade)      node src/clandlesticks.js &
-(trade)      node src/volume.js &
+(trading)      npm run dev
 ```
 
 ## crontab
+
     * * * * * sleep 10 && /home/user/trade/cron/volume.sh
     * * * * * sleep 15 && /home/user/trade/cron/candlesticks.sh
     * * * * * sleep 30 && /home/user/trade/cron/candlesticks.sh
@@ -70,8 +67,9 @@ start service
 ## Donations are always welcome
 
 If this helped you in any way, you can always leave me a tip at
+
 ```
 BTC 1Kajo85BqqjN2R4HM4geX8takiuLK6b7n9
 ETH 0x95b4b64b1208df79a78d850895ff241432d98c39
 LTC LYDTSTUA8z1iW4GKSL7MmtpvwspyRpqwzc
-```        
+```
